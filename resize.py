@@ -11,15 +11,8 @@ def convert_and_resize_images(input_folder, output_folder, size=(256, 256), outp
 
     # Loop through each file in the input folder
     for file_name in files:
-        if file_name.endswith(('.webp')):
-            image_path = os.path.join(input_folder, file_name)
-            img = Image.open(image_path)
-            file_name_no_extension = os.path.splitext(file_name)[0]
-            output_path = os.path.join(output_folder, f"{file_name_no_extension}.png")
-            img.save(output_path, format=output_format)
-            print(f"Converted {file_name} -> {file_name_no_extension}.png")
         # Check if the file is an image
-        if file_name.endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif')):
+        if file_name.endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif', '.webp')):
             # Open the image
             image_path = os.path.join(input_folder, file_name)
             img = Image.open(image_path)
